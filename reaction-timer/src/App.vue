@@ -1,15 +1,28 @@
 <template>
-  <h1>Ninja Reaction Timer</h1>
+  <div class="background">
+    <h1>Ninja Reaction Timer</h1>
+    <button @click="start_game">START</button>
+    <Block v-if="is_playing" :delay="delay"/>
+  </div>
 
 </template>
 
 <script>
-
+import Block from './components/Block.vue'
 
 export default {
   name: 'App',
-  components: {
-    
+  components: { Block },
+  data() {
+    return {
+      is_playing: false,
+      delay: 1000 + (Math.random() * 2000)
+    }
+  },
+  methods: {
+    start_game() {
+      this.is_playing = true
+    }
   }
 }
 </script>
@@ -21,6 +34,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #444;
+  background-color: black;
   margin-top: 60px;
+}
+button {
+  background: red;
+}
+.background {
+  background: black;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  top: 0;
+  position: fixed;
 }
 </style>
