@@ -11,11 +11,11 @@ export default {
             rank : null,
         }
     },
-    mounted() {
-        if( this.score < 300) {
-            this.rank = "first place"
-        } else if (this.score < 400) {
-            this.rank = "second place"
+    updated() {
+        if( this.score < 150) {
+            this.rank = "fast"
+        } else if (this.score < 250) {
+            this.rank = "ehhh"
         } else {
             this.rank = "slow"
         }
